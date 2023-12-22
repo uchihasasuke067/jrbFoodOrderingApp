@@ -1,16 +1,29 @@
-import React from 'react'
-import SectionHeaders from '../../components/layout/SectionHeaders'
+'use client';
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 function RegisterPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleFormSubmit(ev){
+    ev.preventDefault();
+    fetch('/api/register',{
+      method: 'POST',
+      body: JSON.stringify({email, password}),
+      headers:{'Content-Type': 'application/json'},
+    });
+  }
   return (
     <section className='mt-4'>
         <h1 className='text-center text-primary text-4xl'>
             Register
         </h1>
-        <form className='block max-w-xs mx-auto mt-4'>
-            <input type="email" placeholder='Email'></input>
-            <input type="password" placeholder='Password'></input>
+        <form className='block max-w-xs mx-auto mt-4' onSubmit={handleFormSubmit}>
+            <input type="email" placeholder='Email' value={email}
+            onChange={ev => setEmail(ev.target.value)}/>
+            <input type="password" placeholder='Password' value={password}
+            onChange={ev => setPassword(ev.target.value)}/>
             <button type='submit'>Submit</button>
             <div className='my-4 text-center text-gray-500'>
                 or use Google Account
