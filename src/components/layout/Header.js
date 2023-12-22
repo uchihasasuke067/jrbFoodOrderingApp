@@ -5,7 +5,7 @@ function Header() {
     <header>
     <div className="flex items-center md:hidden justify-between">
       <Link className="text-primary font-semibold text-2xl" href={'/'}>
-        The ORIGINAL
+      ORIENT
       </Link>
       <div className="flex gap-8 items-center">
         <Link href={'/cart'} className="relative">
@@ -23,9 +23,9 @@ function Header() {
         <Link href={'/#contact'}>Contact</Link>
       </nav>
       <nav className="flex items-center gap-4 text-gray-500 font-semibold">
-        <Link href={'/login'} className="bg-primary rounded-full text-white px-8 py-2">Login
+      <Link href={'/login'} className="relative">Login
         </Link>
-        <Link href={'/register'} className="relative">Register
+        <Link href={'/register'} className="bg-primary rounded-full text-white px-8 py-2">Register
         </Link>
       </nav>
     </div>
