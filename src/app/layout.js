@@ -11,19 +11,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
-      <div className="flex flex-col min-h-screen">
-      <main className="max-w-4xl mx-auto py-2">
-      <Header/>
-      {children}</main>
-      <footer className="bg-gray-50 py-4">
-        <div className="container mx-auto text-center">
-          &copy; 2023 All right reserved
-        </div>
-      </footer>
-    </div>
-        </body>
+    <html lang="en" className="scroll-smooth">
+    <body className={roboto.className}>
+      <main className="max-w-4xl mx-auto p-4">
+        <Header/>
+        {children}
+        <footer className="border-t p-8 text-center text-gray-500 mt-16">
+            &copy; 2023 All right reserved
+        </footer>
+      </main>
+    </body>
     </html>
   )
 }

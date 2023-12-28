@@ -34,14 +34,14 @@ function RegisterPage() {
             Register
         </h1>
         {userCreated && (
-          <div className='my-4 text-center'>
+          <div className='my-4 text-center text-green-600 font-bold'>
             User created. <br/>
             Now you can {' '}
             <Link href={'/login'} className='underline'> login &rarr;</Link>
           </div>
         )}
         {error && (
-        <div className='my-4 text-center text-red-600 text-semibold'>
+        <div className='my-4 text-center text-red-600 font-bold'>
           User not created. <br/>
           An Error has been encounter. Try again later
           </div>
@@ -71,6 +71,10 @@ function RegisterPage() {
         Github
       </button>
     </div>
+    <div className='text-center text-gray-500 my-4 border-t pt-4'>
+        Existing Account? {' '}
+        <Link className='underline' href={'/login'}>Login here &raquo;</Link>
+      </div>
         </form>            
     </section>
   )
