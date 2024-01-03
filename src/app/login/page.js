@@ -1,23 +1,27 @@
 'use client';
+import {signIn} from "next-auth/react";
 import {useState} from 'react';
 
 function LoginPage() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [loginInProgress, setLoginInProgress] = useState();
+    const [loginInProgress, setLoginInProgress] = useState(false);
 
     async function handleFormSubmit(ev){
         ev.preventDefault();
-        const {ok} = await fetch ('/api/login',{
-            body: JSON.stringify({email, password}),
-            headers: {'Content-Type':'application/json'},
-            method: 'POST',
-        });
-        if (ok){
+        setLoginInProgress(true);
+        // const {ok} = await fetch ('/api/login',{
+        //     body: JSON.stringify({email, password}),
+        //     headers: {'Content-Type':'application/json'},
+        //     method: 'POST',
+        // });
+        // if (ok){
 
-        } else {
+        // } else {
 
-        }
+        // }
+        await signIn('credentials', {email, password});
+        setLoginInProgress(false);
     }
   return (
     <section className='mt-8'>
@@ -28,7 +32,7 @@ function LoginPage() {
         <input name="email" type="email" placeholder='Email' value={email}
             disabled={loginInProgress}
             onChange={ev => setEmail(ev.target.value)}/>
-            <input name="pwd" type="password" placeholder='Password' value={password}
+            <input name="password" type="password" placeholder='Password' value={password}
             disabled={loginInProgress}
             onChange={ev => setPassword(ev.target.value)}/>
             <button disabled={loginInProgress} type='submit'>Login</button>

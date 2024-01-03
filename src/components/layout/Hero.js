@@ -27,7 +27,9 @@ function Hero() {
       </div>
       <div className="relative hidden md:block">
   <div className="overflow-hidden rounded-full" style={{ width: '300px', height: '300px' }}>
-    <Image src={'/1.jpg'} layout={'fill'} objectFit={'cover'} alt={'pizza'} className="rounded-lg" />
+    {/* <Image src={'/1.jpg'} layout='fill' objectFit={'cover'} alt={'pizza'} className="rounded-lg" /> */}
+    <Image src={'/1.jpg'} layout='fill' objectFit='cover' alt={'pizza'} className="rounded-lg"
+/>
   </div>
 </div>
 
