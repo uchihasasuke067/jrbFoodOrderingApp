@@ -10,17 +10,8 @@ function LoginPage() {
     async function handleFormSubmit(ev){
         ev.preventDefault();
         setLoginInProgress(true);
-        // const {ok} = await fetch ('/api/login',{
-        //     body: JSON.stringify({email, password}),
-        //     headers: {'Content-Type':'application/json'},
-        //     method: 'POST',
-        // });
-        // if (ok){
 
-        // } else {
-
-        // }
-        await signIn('credentials', {email, password});
+        await signIn('credentials', {email, password, callbackUrl:'/'});
         setLoginInProgress(false);
     }
   return (
@@ -40,7 +31,8 @@ function LoginPage() {
                 or use 
             </div>
             <div className="flex space-x-4">
-            <button className="flex items-center flex-grow text-gray-600 px-3 py-1 rounded-lg">
+            <button onClick={() => signIn('google', {callbackUrl:'/'})}
+            className="flex items-center flex-grow text-gray-600 px-3 py-1 rounded-lg">
               <img src="/google.png" alt="Google Logo" width={20} height={20} className="mr-2" />
               Google
               </button>
