@@ -31,7 +31,7 @@ function LoginPage() {
                 or use 
             </div>
             <div className="flex space-x-4">
-            <button onClick={() => signIn('google', {callbackUrl:'/'})}
+            <button type="button" onClick={() => signIn('google', {callbackUrl:'/'})}
             className="flex items-center flex-grow text-gray-600 px-3 py-1 rounded-lg">
               <img src="/google.png" alt="Google Logo" width={20} height={20} className="mr-2" />
               Google
